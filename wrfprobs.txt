@@ -1,0 +1,30 @@
+Hi, So I am having trouble getting WRF-Hydro to run with both the following configurations:
+1.  removing all the previous /usr/local/ include,bin,lib files
+	gcc version 4.8.2
+	netcdf-3.6.3 (recommended in wrf-hydro documentation). No other dependencies were mentioned
+	./configure=/usr/local ; make; make check; sudo make install : All successful
+	wrf hydro compiles!
+	
+Previously noted error that didnt occur this time
+PROBLEM1: 
+make[1]: Entering directory `/home/idasgupt/hydro'
+(cd Data_Rec     ; make -f Makefile)
+make[2]: Entering directory `/home/idasgupt/hydro/Data_Rec'
+cpp -C -P -xassembler-with-cpp -traditional -I"../Data_Rec" -DHYDRO_D -DWRF_HYDRO  -I/usr/local/include module_namelist.F > module_namelist.f
+gfortran -o module_namelist.o -w -c -ffree-form -ffree-line-length-none -fconvert=big-endian -frecord-marker=4  -I./ -I../mod -I../mod module_namelist.f
+
+SOLUTION
+Go to hydro/Data_Rec
+vim macros
+In CPPFLAGS remove '-C'
+
+Also, one of the configurations that worked for Seongjin: 
+gcc 4.9.1
+g++ 
+gfortran 4.9.1
+
+curl 
+zlib 1.2.8
+hdf5 1.8.16
+netcdf 4.3.3.1
+netcdf-fortran 4.4.2
