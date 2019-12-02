@@ -14,6 +14,12 @@ sudo apt-get install tmux; <br/>
 sudo apt-get install htop; <br/>
 
 ## STEP1a: IF NOT DOWNLOADED: Download hydro,wrf,rainfall, domaincases:
+hydro,wrf,rainfall, domaincases:<br/>
+scp -r ~/ResearchZink/WRF/*.gz -p 22 ishitadg@c220g1-031125.wisc.cloudlab.us:;<br/>
+scp -r ~/ResearchZink/WRF/diff_res-20190712T063837Z-001.zip -p 22 ishitadg@c220g1-031125.wisc.cloudlab.us:;<br/>
+scp -r ~/ResearchZink/WRF/wrkdir_rt125_forIshita_2017Jan.zip -p 22 ishitadg@c220g1-031125.wisc.cloudlab.us:; <br/>
+ 
+OR <br/>
 wget -L https://github.com/ISHITADG/wrf_hydro/raw/master/WRF_Hydro3.0.tar.gz; <br/>
 wget -L https://github.com/ISHITADG/wrf_hydro/raw/master/WRF_hydro_DFW_setup.tar.gz; <br/>
 wget -L https://drive.google.com/drive/folders/1gVEMWSzfpedXBaV-TUhwfQH1bYSu9bnJ; <br/>
@@ -28,7 +34,7 @@ wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download
 cp -r /proj/wrfhydro-PG0/big/* .;
 
 ## STEP2: Install dependencies
-###NETCDF
+### NETCDF
 wget -L https://github.com/ISHITADG/wrf_hydro/raw/master/netcdf-3.6.3-beta1.tar.gz;<br/>
 sudo apt-get update; sudo apt-get install -y gfortran; <br/>
 sudo apt-get install -y tmux;sudo apt-get install -y vim;<br/>
@@ -37,14 +43,20 @@ export FC=gfortran;<br/>
 sudo mkdir /opt/netcdf; sudo mkdir /opt/netcdf/3.6.3;<br/>
 cd netcdf-3.6.3-beta1; ./configure --prefix=/opt/netcdf/3.6.3; make; sudo make install;<br/>
 export NETCDFHOME=/opt/netcdf/3.6.3; export NETCDFINC=/opt/netcdf/3.6.3/include; export NETCDFLIB=/opt/netcdf/3.6.3/lib;<br/>
-###MPICH
+### OPENMPI
+mkdir openmi
+cd openmi/
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.gz
+tar -xvzf openmpi-4.0.2.tar.gz
+cd openmpi-4.0.2/
+./configure --prefix=/mnt/big/openmi
+
+ 
+### MPICH
 wget -L https://github.com/ISHITADG/wrf_hydro/raw/master/mpich-3.2.1.tar.gz;<br/>
 sudo apt-get install libswitch-perl; sudo apt-get install m4;<br/>
 
-hydro,wrf,rainfall, domaincases:
-scp -r ~/ResearchZink/WRF/*.gz -p 22 ishitadg@c220g1-031125.wisc.cloudlab.us:;
-scp -r ~/ResearchZink/WRF/diff_res-20190712T063837Z-001.zip -p 22 ishitadg@c220g1-031125.wisc.cloudlab.us:;
-scp -r ~/ResearchZink/WRF/wrkdir_rt125_forIshita_2017Jan.zip -p 22 ishitadg@c220g1-031125.wisc.cloudlab.us:; 
+
 
 ## Step 3: compile WRF
 cd ../hydro<br/>
