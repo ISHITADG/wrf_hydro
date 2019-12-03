@@ -74,7 +74,11 @@ cp /mnt/big/hydro/Run/wrf_hydro_NoahMP.exe wrf_hydro_NoahMP.exe;<br/>
 
 #latest case
 rm -rf DOMAIN; rm namelist.hrldas; rm hydro.namelist;<br/>
-cp -r ../c4_1_rt100m_acc2_test_runtime_10processors_lfor_Ishita/* .; <br/>
+cp -r ../c4_1_rt100m_acc2_test_runtime_10processors_lfor_Ishita/DOMAIN .; <br/>
+cp ../c4_1_rt100m_acc2_test_runtime_10processors_lfor_Ishita/hydro.namelist .;<br/>
+cp ../c4_1_rt100m_acc2_test_runtime_10processors_lfor_Ishita/namelist.hrldas .;<br/>
+rm 2011*; rm diag*; <br/>
+time mpiexec -np 16 ./wrf_hydro_NoahMP.exe;<br/>
 
 #Cases: 100m
 rm -rf DOMAIN; rm namelist.hrldas; rm hydro.namelist; <br/>
