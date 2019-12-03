@@ -56,16 +56,14 @@ export PATH=$PATH:/mnt/big/openmi/openmpi-4.0.2:/mnt/big/openmi;<br/>
 
  
 ### MPICH
-wget -L https://github.com/ISHITADG/wrf_hydro/raw/master/mpich-3.2.1.tar.gz;<br/>
-sudo apt-get install libswitch-perl; sudo apt-get install m4;<br/>
-
-
+sudo apt-get install mpich;sudo apt-get install libswitch-perl; sudo apt-get install m4;<br/>
 
 ## Step 3: compile WRF
 cd ../hydro<br/>
 csh;<br/>
 setenv WRF_HYDRO 1; setenv NETCDF "/opt/netcdf/3.6.3"; setenv NETCDF_INC "/opt/netcdf/3.6.3/include";setenv NETCDF_LIB "/opt/netcdf/3.6.3/lib"<br/>
 ./configure  (5: Linux gfort sequential compiler/6: for parallel)<br/>
+wget -L https://raw.githubusercontent.com/ISHITADG/wrf_hydro/master/macros; <br/>
 vim macros #Remove -C from line 40 CPPFLAGS =<br/>
 ./compile_offline_NoahMP.csh<br/>
 //creates wrf_hydro.exe -> wrf_hydro_Noah.exe in Run/ directory<br/>
