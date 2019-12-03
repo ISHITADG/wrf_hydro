@@ -78,7 +78,7 @@ cp -r ../c4_1_rt100m_acc2_test_runtime_10processors_lfor_Ishita/DOMAIN .; <br/>
 cp ../c4_1_rt100m_acc2_test_runtime_10processors_lfor_Ishita/hydro.namelist .;<br/>
 cp ../c4_1_rt100m_acc2_test_runtime_10processors_lfor_Ishita/namelist.hrldas .;<br/>
 rm 2011*; rm diag*; <br/>
-time mpiexec -np 16 ./wrf_hydro_NoahMP.exe;<br/>
+time /usr/bin/mpiexec --allow-run-as-root -np 4 -mca btl ^openib ./wrf_hydro_NoahMP.exe >output.txt; <br/>
 
 #Cases: 100m
 rm -rf DOMAIN; rm namelist.hrldas; rm hydro.namelist; <br/>
