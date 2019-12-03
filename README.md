@@ -44,12 +44,15 @@ sudo mkdir /opt/netcdf; sudo mkdir /opt/netcdf/3.6.3;<br/>
 cd netcdf-3.6.3-beta1; ./configure --prefix=/opt/netcdf/3.6.3; make; sudo make install;<br/>
 export NETCDFHOME=/opt/netcdf/3.6.3; export NETCDFINC=/opt/netcdf/3.6.3/include; export NETCDFLIB=/opt/netcdf/3.6.3/lib;<br/>
 ### OPENMPI
-mkdir openmi
-cd openmi/
-wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.gz
-tar -xvzf openmpi-4.0.2.tar.gz
-cd openmpi-4.0.2/
-./configure --prefix=/mnt/big/openmi
+cd ..;mkdir openmi;cd openmi/;<br/>
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.gz;<br/>
+tar -xvzf openmpi-4.0.2.tar.gz;<br/>
+cd openmpi-4.0.2/;<br/>
+./configure --prefix=/mnt/big/openmi;<br/>
+make all;<br/>
+make install;<br/>
+export LD_LIBRARY_PATH=/mnt/big/openmi/openmpi-4.0.2;<br/>
+export PATH=$PATH:/mnt/big/openmi/openmpi-4.0.2:/mnt/big/openmi;<br/>
 
  
 ### MPICH
