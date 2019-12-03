@@ -61,12 +61,11 @@ sudo apt-get install mpich;sudo apt-get install libswitch-perl; sudo apt-get ins
 ## Step 3: compile WRF
 cd ../hydro<br/>
 csh;<br/>
-setenv WRF_HYDRO 1; setenv NETCDF "/opt/netcdf/3.6.3"; setenv NETCDF_INC "/opt/netcdf/3.6.3/include";setenv NETCDF_LIB "/opt/netcdf/3.6.3/lib"<br/>
-./configure  (5: Linux gfort sequential compiler/6: for parallel)<br/>
-wget -L https://raw.githubusercontent.com/ISHITADG/wrf_hydro/master/macros; <br/>
-vim macros #Remove -C from line 40 CPPFLAGS =<br/>
-./compile_offline_NoahMP.csh<br/>
-//creates wrf_hydro.exe -> wrf_hydro_Noah.exe in Run/ directory<br/>
+setenv WRF_HYDRO 1; 
+setenv NETCDF "/opt/netcdf/3.6.3"; setenv NETCDF_INC "/opt/netcdf/3.6.3/include";setenv NETCDF_LIB"/opt/netcdf/3.6.3/lib";<br/>
+./configure;  (5: Linux gfort sequential compiler/6: for parallel)<br/>
+wget -L https://raw.githubusercontent.com/ISHITADG/wrf_hydro/master/macros; mv macros.1 macros;<br/>
+./compile_offline_NoahMP.csh<br/> //creates wrf_hydro.exe -> wrf_hydro_Noah.exe in Run/ directory<br/>
 
 ## Step 4: Run WRF
 ##For sunghee's new data:<br/>
