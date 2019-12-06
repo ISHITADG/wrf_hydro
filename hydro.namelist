@@ -47,7 +47,7 @@
  rst_bi_in = 0   ! read restart in binary format
  rst_bi_out = 0  ! output restart in binary format
 
-!Routing output netcdf file control...(=0 no files written, =1 files are written)
+!Routing output netcdf file control...(=0 no files written, =1 files are written) here I turned everything to 1
  CHRTOUT_DOMAIN = 1           ! Netcdf point timeseries output at all channel points
  CHRTOUT_GRID = 1             ! Netcdf grid of channel streamflow values
  LSMOUT_DOMAN = 1             ! Netcdf grid of variables passed between LSM and routing components
