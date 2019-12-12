@@ -3,11 +3,6 @@ FROM ubuntu:18.04
 #increase space and install dependencies
 RUN apt-get update \
     && sudo apt install udisks2\
-    && df -h\
-    && lsblk\
-    && sudo mkdir /mnt/big\
-    && mkfs.ext4 /dev/sda4\
-    && sudo mount -t auto -v /dev/sda4 /mnt/big\
     && sudo apt-get install tmux\
     && sudo apt-get install htop\
     && sudo apt-get install -y gfortran\
@@ -53,8 +48,8 @@ RUN wget -L https://github.com/ISHITADG/wrf_hydro/blob/master/wrf_hydro_NoahMP.e
 # download domain case
 RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O- | sed -rn 's/.confirm=([0-9A-Za-z_]+)./\1\n/p')&id=1F2FEl-uob5XAvE5DU_u3TkFGw61iKQod" -O c4_1.tar.gz && rm -rf /tmp/cookies.txt
 
-#run wrf on rainfall 
-#see output
+#run wrf on rainfall get rainfall data --see later
+#see output --how to run model see later
 
 CMD /usr/local/bin/nfd -c $CONFIG > $LOG_FILE 2>&1
 
