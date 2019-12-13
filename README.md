@@ -27,9 +27,14 @@ wget -L https://drive.google.com/open?id=1Z0PiT8dRzrk8WLv6q5PA6LavE9Aq5R6d; <br/
 wget -L https://drive.google.com/drive/folders/1gVEMWSzfpedXBaV-TUhwfQH1bYSu9bnJ?usp=sharing <br/>
 wget -L https://github.com/ISHITADG/wrf_hydro/raw/master/netcdf-3.6.3-beta1.tar.gz; <br/>
 wget -L https://github.com/ISHITADG/wrf_hydro/raw/master/mpich-3.2.1.tar.gz;<br/>
-
+### Diff domain cases
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O- | sed -rn 's/.confirm=([0-9A-Za-z_]+)./\1\n/p')&id=1lyNo-qH6oqOh3YL8h76nwz3zEvXxfRVo" -O diff_res-20190712T063837Z-001.zip && rm -rf /tmp/cookies.txt;<br/>
+### case4 single domain case
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O- | sed -rn 's/.confirm=([0-9A-Za-z_]+)./\1\n/p')&id=1F2FEl-uob5XAvE5DU_u3TkFGw61iKQod" -O c4_1.tar.gz && rm -rf /tmp/cookies.txt;<br/>
+### Parameters + run files + Rainfall data
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O- | sed -rn 's/.confirm=([0-9A-Za-z_]+)./\1\n/p')&id=1Z0PiT8dRzrk8WLv6q5PA6LavE9Aq5R6d" -O forIshita.tgz && rm -rf /tmp/cookies.txt;<br/>
+
+https://drive.google.com/open?id=1Z0PiT8dRzrk8WLv6q5PA6LavE9Aq5R6d
 ## STEP1b: IF DOWNLOADED in proj directory:
 cp -r /proj/wrfhydro-PG0/big/* .;
 
