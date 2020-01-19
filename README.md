@@ -45,7 +45,7 @@ sudo apt-get update; sudo apt-get install -y gfortran; <br/>
 sudo apt-get install -y tmux;sudo apt-get install -y vim;<br/>
 sudo apt-get install -y libboost-all-dev;<br/>
 export FC=gfortran;<br/>
-sudo mkdir /opt/netcdf; sudo mkdir /opt/netcdf/3.6.3;<br/>
+sudo mkdir /opt; sudo mkdir /opt/netcdf; sudo mkdir /opt/netcdf/3.6.3;<br/>
 cd netcdf-3.6.3-beta1; ./configure --prefix=/opt/netcdf/3.6.3; make; sudo make install;<br/>
 export NETCDFHOME=/opt/netcdf/3.6.3; export NETCDFINC=/opt/netcdf/3.6.3/include; export NETCDFLIB=/opt/netcdf/3.6.3/lib;<br/>
 ### OPENMPI
